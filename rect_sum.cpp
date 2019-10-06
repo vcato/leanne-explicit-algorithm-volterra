@@ -74,23 +74,59 @@ which is impossible because you can't apply any operators to a void value.*/
 
 /* leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ g++ -o rects rect_sum.cpp
 leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
- Enter the value for n (n>=1): 20
- Enter the value for t : 20.7
--2.66452e+17
+ Enter the value for n (n>=1): 1
+ Enter the value for t : 2
+0
 leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
- Enter the value for n (n>=1): 5
- Enter the value for t : 3
-0.458333
+ Enter the value for n (n>=1): 1
+ Enter the value for t : 0.1
+1
 leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
- Enter the value for n (n>=1): 19
+ Enter the value for n (n>=1): 1
+ Enter the value for t : 0.01
+1
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 1
+ Enter the value for t : 0.4
+1
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 1
+ Enter the value for t : 0.9
+1
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 1
+ Enter the value for t : 0.99
+1
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 1
+ Enter the value for t : 1.01
+0
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 2
  Enter the value for t : 0.2
--2.91779e-22
+0.2
 leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
- Enter the value for n (n>=1): 10
- Enter the value for t : 1.2
-1.4219e-05
+ Enter the value for n (n>=1): 2
+ Enter the value for t : 1
+1
 leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
- Enter the value for n (n>=1): 10
- Enter the value for t : 3.2
-0.0643294
+ Enter the value for n (n>=1): 2
+ Enter the value for t : 1.5
+0.5
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 2
+ Enter the value for t : 2
+0
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 3
+ Enter the value for t : 0.2
+0.02
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 3
+ Enter the value for t : 0.5
+0.125
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./rects
+ Enter the value for n (n>=1): 3
+ Enter the value for t : 1.5
+0.75
 */
