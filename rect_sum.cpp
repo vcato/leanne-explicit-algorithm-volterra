@@ -30,7 +30,7 @@ double impul(double t){
     return pow(t-a, r)
 }*/
 
-double my_fct(double t, double a, int k){
+double my_fct(double t, int a, int k){
     return (t>= a ? pow(t-a, k) : 0);
 }
 
