@@ -33,5 +33,5 @@
 *.app
 
 # binary
-relative/path/to/your/test
+relative/path/to/explicit-algorithm-volterra/test
 
