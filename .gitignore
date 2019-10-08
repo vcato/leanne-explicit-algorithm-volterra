@@ -33,4 +33,5 @@
 *.app
 
 # binary
-*
+relative/path/to/your/test
+
