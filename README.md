@@ -1,5 +1,5 @@
 # explicit-algorithm-volterra
-some scripts calculate elementary function for our volterra explicit algorithm paper
+Some scripts calculate elementary function for our volterra explicit algorithm paper
 
 - [volterra-explicit](https://arxiv.org/abs/1908.02862)
 
