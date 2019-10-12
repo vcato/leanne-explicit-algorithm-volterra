@@ -1,6 +1,6 @@
 # explicit-algorithm-volterra
-Some scripts calculate elementary function for our volterra explicit algorithm paper
+Function prototypes that calculate elementary functions for our volterra explicit algorithm paper
 
 - [volterra-explicit](https://arxiv.org/abs/1908.02862)
 
-More to be added
+Work in progress...
