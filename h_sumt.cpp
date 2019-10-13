@@ -15,7 +15,7 @@ double rect(double t, double low, double up);
 double impul(double t);
 double my_fct(double t, int a, int k);
 double series(int n, double t);
-double h_series(int n, int k, double tt, double t);
+double h_series(int k, double tt, double t);
 void max_ser(int n, double t);
 
 // Function definition
@@ -67,11 +67,11 @@ double series(int n, double t){
     return sum;
 }
 
-double h_series(int n, int k, double tt, double t){
+double h_series(int k, double tt, double t){
   double sum = 0.0;
-  for ( n= 0; n < floor(tt)+1; n++) {
-    double kPow = pow(k, n);
-    double g_ser = series (n, t);
+  for ( i= 0; i < floor(tt)+1; i++) {
+    double kPow = pow(k, i);
+    double g_ser = series (i, t);
     sum +=  kPow*g_ser;
   }
   return sum;
@@ -82,7 +82,7 @@ double h_series(int n, int k, double tt, double t){
 // Driver code 
 int main() 
 { 
- double t, tt; int nn;
+ double t, tt; 
  double h;
  //h = static_cast<float>(t)/nn;
     cout <<" Enter the value for t: ";
@@ -92,8 +92,8 @@ int main()
     cin >> tt;
     cout <<" Enter the value for k: ";
     cin >> k;
- for (int n=0; n<tt; n++ ){
-    cout << setw(12) << n << setw(13) << series(n,t) << setw(13) << h_series(n,k,tt,t);
+ for (int i=0; i<tt; i++ ){
+    cout << setw(12) << i << setw(13) << series(i,t) << setw(13) << h_series(k,tt,t);
     //cout << setw(12);
     //series(n,h*i);
     cout << endl;
