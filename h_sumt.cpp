@@ -5,7 +5,7 @@ using namespace std;
 
 
 // Global Declaration Section
-int n, r, a, k, i; double t, low, up;
+int n, r, a, k, i , j; double t, low, up;
 
  
  // Function Declaration  
@@ -69,7 +69,7 @@ double series(int n, double t){
 
 double h_series(double k, double tt, double t){
   double sum = 0.0;
-  for ( i= 0; i < floor(tt)+1; i++) {
+  for ( i= 1; i < floor(tt)+1; i++) {
     double kPow = pow(k, i);
     double g_ser = series (i, t);
     sum +=  kPow*g_ser;
@@ -77,6 +77,8 @@ double h_series(double k, double tt, double t){
   return sum;
 
 }
+
+
 
   
 // Driver code 
@@ -107,31 +109,16 @@ int main()
 } 
 
 /* 
-leanne@leanne-HP-ProBook-450-G5:~/explicit-algorithm-volterra$ ./test
- Enter the value for t: 1.2
- Enter the value for T (T>=1): 9.8
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./test
+ Enter the value for t: 0.8
+ Enter the value for T (T>=1): 7.3
  Enter the value for k: 0.7
-           1            0     0.833333
-           2          0.8      1.22533
-           3         0.66      1.22533
-           4     0.282667       1.2932
-           5    0.0860667       1.2932
-           6      0.02072      1.29564
-           7   0.00414658      1.29564
-           8  0.000710928      1.29568
-           9  0.000106642      1.29568
+           1            1          0.7
+           2          0.8          0.7
+           3         0.32      0.80976
+           4    0.0853333      0.80976
+           5    0.0170667     0.812628
+           6   0.00273067     0.812628
+           7  0.000364089     0.812658
 
-leanne@leanne-HP-ProBook-450-G5:~/explicit-algorithm-volterra$ ./test
- Enter the value for t: 1.2
- Enter the value for T (T>=1): 9.8
- Enter the value for k: 0.7
-           1            0     0.833333
-           2          0.8      1.22533
-           3         0.66      1.22533
-           4     0.282667       1.2932
-           5    0.0860667       1.2932
-           6      0.02072      1.29564
-           7   0.00414658      1.29564
-           8  0.000710928      1.29568
-           9  0.000106642      1.29568
 */
