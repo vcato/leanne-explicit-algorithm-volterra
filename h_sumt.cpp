@@ -16,7 +16,6 @@ double impul(double t);
 double my_fct(double t, double a, double k);
 double series(int n, double t);
 double h_series(double k, double tt, double t);
-void max_ser(int n, double t);
 
 // Function definition
 int nCr(int n, int r) 
@@ -67,19 +66,6 @@ double series(int n, double t){
     return sum;
 }
 
-double h_series(double k, double tt, double t){
-  double sum = 0.0;
-  for ( i= 1; i < floor(tt)+1; i++) {
-    double kPow = pow(k, i);
-    double g_ser = series (i, t);
-    sum +=  kPow*g_ser;
-  }
-  return sum;
-
-}
-
-
-
   
 // Driver code 
 int main() 
@@ -97,9 +83,11 @@ int main()
    // cout << h_series(0.3,2.9,0.8) << endl;
    // cout << h_series(0.3,3.567,0.8) << endl;
    // cout << h_series(0.3,4.788,0.8) << endl;
+    double sum = 0.0;
 
  for (int i=1; i<floor(tt)+1; i++ ){
-    cout << setw(12) << i << setw(13) << series(i,t) << setw(13) << h_series(k,i,t);
+    sum +=  pow(k,i)*series(i,t);
+    cout << setw(12) << i << setw(13) << series(i,t) << setw(13) << pow(k,i) <<setw(13) << series(i,t)*pow(k,i)<< setw(13)<< sum;
     //cout << setw(12);
     //series(n,h*i);
     cout << endl;
@@ -109,16 +97,16 @@ int main()
 } 
 
 /* 
-leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./test
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./htest
  Enter the value for t: 0.8
  Enter the value for T (T>=1): 7.3
  Enter the value for k: 0.7
-           1            1          0.7
-           2          0.8          0.7
-           3         0.32      0.80976
-           4    0.0853333      0.80976
-           5    0.0170667     0.812628
-           6   0.00273067     0.812628
-           7  0.000364089     0.812658
+           1            1          0.7          0.7          0.7
+           2          0.8         0.49        0.392        1.092
+           3         0.32        0.343      0.10976      1.20176
+           4    0.0853333       0.2401    0.0204885      1.22225
+           5    0.0170667      0.16807   0.00286839      1.22512
+           6   0.00273067     0.117649   0.00032126      1.22544
+           7  0.000364089    0.0823543  2.99843e-05      1.22547
 
 */
