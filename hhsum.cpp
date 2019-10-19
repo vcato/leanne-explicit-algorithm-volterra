@@ -124,18 +124,57 @@ return 0;
 
 
 /* 
-leanne@leanne-HP-ProBook-450-G5:~/explicit-algorithm-volterra$ ./testh
- Enter the value for t: 0.8
- Enter the value for T (T>=1): 7.3
- Enter the value for k: 0.7
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./hhs
+ Enter the value for t: 3.5
+ Enter the value for n (n>=0): 2
+ Enter the value for N (N>=1): 5
+ Enter the value for k: 9
+ Enter the value for theta: 0.9
+ Enter the value for c: 1.1
+ Enter the value for delta: 0.001
            n     gamma_n       h_n    
 
-           1     1.000000     0.700000
-           2     0.800000     1.092000
-           3     0.320000     1.201760
-           4     0.085333     1.222249
-           5     0.017067     1.225117
-           6     0.002731     1.225438
-           7     0.000364     1.225468
+           0     0.285714     2.103896
+           0     0.285714    17.596222
+           0     0.285714   131.676076
+           0     0.285714   971.718637
+           0     0.285714  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ g++ -o hhs hhsum.cpp
+leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./hhs
+ Enter the value for t: 3.5
+ Enter the value for n (n>=0): 4
+ Enter the value for N (N>=1): 5
+ Enter the value for k: 9
+ Enter the value for theta: 0.9
+ Enter the value for c: 1.1
+ Enter the value for delta: 0.001
+           n     gamma_n       h_n    
+
+           0     0.285714     2.103896
+           0     0.285714    17.596222
+           0     0.285714   131.676076
+           0     0.285714   971.718637
+           0     0.285714  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+           1     0.000000  7157.486590
+           2     0.500000  7161.155723
+           2     0.500000  7188.080791
+           2     0.500000  7385.664086
+           2     0.500000  8835.582709
+           2     0.500000 19475.470161
+           3     0.125000 19476.385864
+           3     0.125000 19483.093971
+           3     0.125000 19532.235074
+           3     0.125000 19892.224596
+           3     0.125000 22529.374532
+
 
 */
