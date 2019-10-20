@@ -102,7 +102,7 @@ cin >> del;
 
 //cout << "kernel is "<< kernel(n,k,theta,c,del) << endl;
 
-    cout  << "           n     gamma_n       h_n";
+    cout  << "           N          n       kernel_n     gamma_n      h_n";
  //   std::cout << "         l1       l2" << endl;
  //   std::cout << "                 answer1      answer1";
     cout << "  " << "  " << endl << endl;
@@ -114,7 +114,7 @@ double sum = 0.0;
 for (int i=0; i<n; i++){
   for (int j=1; j<nn+1; j++){
     sum += pow(kernel(i,k,theta,c,del),j)* series(i,t-i);
-    cout << setw(12) << i << setw(13) << series(i,t-i) << setw(13) << setw(13)<< sum;
+    cout << setw(12) << j << setw(12) << i << setw(13) << pow(kernel(i,k,theta,c,del),j) << setw(12) << series(i,t-i) << setw(13) << setw(13)<< sum;
     cout << endl;
   }
 }
@@ -124,57 +124,26 @@ return 0;
 
 
 /* 
-leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./hhs
- Enter the value for t: 3.5
- Enter the value for n (n>=0): 2
- Enter the value for N (N>=1): 5
- Enter the value for k: 9
- Enter the value for theta: 0.9
- Enter the value for c: 1.1
- Enter the value for delta: 0.001
-           n     gamma_n       h_n    
-
-           0     0.285714     2.103896
-           0     0.285714    17.596222
-           0     0.285714   131.676076
-           0     0.285714   971.718637
-           0     0.285714  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ g++ -o hhs hhsum.cpp
-leanne@leanne-Latitude-5480:~/explicit-algorithm-volterra$ ./hhs
  Enter the value for t: 3.5
  Enter the value for n (n>=0): 4
- Enter the value for N (N>=1): 5
- Enter the value for k: 9
+ Enter the value for N (N>=1): 3
+ Enter the value for k: 0.4
  Enter the value for theta: 0.9
  Enter the value for c: 1.1
- Enter the value for delta: 0.001
-           n     gamma_n       h_n    
+ Enter the value for delta: 0.01
+           N          n       kernel_n     gamma_n      h_n    
 
-           0     0.285714     2.103896
-           0     0.285714    17.596222
-           0     0.285714   131.676076
-           0     0.285714   971.718637
-           0     0.285714  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-           1     0.000000  7157.486590
-           2     0.500000  7161.155723
-           2     0.500000  7188.080791
-           2     0.500000  7385.664086
-           2     0.500000  8835.582709
-           2     0.500000 19475.470161
-           3     0.125000 19476.385864
-           3     0.125000 19483.093971
-           3     0.125000 19532.235074
-           3     0.125000 19892.224596
-           3     0.125000 22529.374532
-
+           1           0     0.327273    0.285714     0.093506
+           2           0     0.107107    0.285714     0.124109
+           3           0     0.035053    0.285714     0.134124
+           1           1     0.321693    0.000000     0.134124
+           2           1     0.103487    0.000000     0.134124
+           3           1     0.033291    0.000000     0.134124
+           1           2     0.316258    0.500000     0.292253
+           2           2     0.100019    0.500000     0.342263
+           3           2     0.031632    0.500000     0.358078
+           1           3     0.310962    0.125000     0.396949
+           2           3     0.096697    0.125000     0.409036
+           3           3     0.030069    0.125000     0.412794
 
 */
