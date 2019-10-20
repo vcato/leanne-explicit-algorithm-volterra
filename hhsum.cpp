@@ -16,6 +16,7 @@ double impul(double t);
 double my_fct(double t, double a, double k);
 double series(int n, double t);
 double kernel(int n, double k, double theta, double c, double del);
+void norms(double* x, int n, double& norm1, double& norminf);
 
 // Function definition
 int nCr(int n, int r) 
@@ -71,6 +72,19 @@ double kernel(int n, double k, double theta, double c, double del){
   //return k*theta*c*del*n;
 }
 
+void norms(double* x, int n, double& norm1, double& norminf)
+{
+  norm1 = fabs(x[0]);
+  norminf = norm1;
+  for(int i=1; i<n; i++)
+  {
+    x[i] = fabs(x[i]);
+    norm1 += x[i];
+    if(x[i]> norminf)
+      norminf = x[i]; 
+  }
+}
+
   
 // Driver code 
 int main() 
@@ -78,10 +92,14 @@ int main()
 int n, nn;
 double t, k, theta, c, del; 
 double h;
-//double kernel;
- //h = static_cast<float>(t)/nn;
-//cout << series(3,2);
-//cout << "kernel is "<< kernel(3,1,0.8,1.2,0.01) << endl;
+double* x = new double[n];
+x[0]=-5.1; x[1]=2.3; x[2]=3.7; x[3]=1.1; x[4]=0.7;
+double norm1;
+double norminf;
+norms(x,n,norm1,norminf);
+cout << "norm1 = " << norm1 << endl;
+cout << "norminf = " << norminf << endl;
+delete[] x;
 
 cout <<" Enter the value for t: ";
 cin >> t;
