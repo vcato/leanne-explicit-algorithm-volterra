@@ -34,11 +34,11 @@ int fact(int n)
 } 
 
 double rect(double t, double low, double up){
-	return ((t>=low)  && (t< up)? 1 : 0);
+  return ((t>=low)  && (t< up)? 1 : 0);
 }
 
 double impul(double t){ 
-	return (t==0 ? 1 : 0);
+  return (t==0 ? 1 : 0);
 }
 
 /*double taPow(double a, double r){
@@ -150,7 +150,6 @@ return 0;
  Enter the value for c: 1.1
  Enter the value for delta: 0.01
            N          n       kernel_n     gamma_n      h_n    
-
            1           0     0.327273    0.285714     0.093506
            2           0     0.107107    0.285714     0.124109
            3           0     0.035053    0.285714     0.134124
@@ -163,5 +162,4 @@ return 0;
            1           3     0.310962    0.125000     0.396949
            2           3     0.096697    0.125000     0.409036
            3           3     0.030069    0.125000     0.412794
-
 */
