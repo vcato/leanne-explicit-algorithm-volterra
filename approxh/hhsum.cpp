@@ -49,7 +49,6 @@ double hhsum::series(int n, double t){
         int mPow = pow(-1,i);
         int comb = nCr(n, i);
         double myfct = my_fct(t,i,n-1);
-        //cout << mPow * comb * myfct / n1fact << " ";
         sum += mPow * comb * myfct/ n1fact;
     }
     return sum;
