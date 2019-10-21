@@ -55,8 +55,8 @@ double hhsum::series(int n, double t){
 }
 
 double hhsum::kernel(int n, double k, double theta, double c, double del){
+    //return k*theta*pow(c,theta)/(pow((c+(n+1)*del),(1+theta)));
     return k*theta*pow(c,theta)/(pow((c+n*del),(1+theta)));
-  //return k*theta*c*del*n;
 }
 
 void hhsum::norms(double* x, int n, double& norm1, double& norminf)
