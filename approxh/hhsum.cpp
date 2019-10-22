@@ -72,4 +72,7 @@ void hhsum::norms(double* x, int n, double& norm1, double& norminf)
   }
 }
 
- 
+void hhsum::findError()
+{
+  Error = fabs(h-h_a);
+ }
