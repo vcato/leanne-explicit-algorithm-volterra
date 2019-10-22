@@ -51,19 +51,22 @@ delete[] x;*/
 
   //cout << "kernel is "<< kernel(n,k,theta,c,del) << endl;
 
-      cout  << "           N          n       kernel_n     gamma_n      h_n";
+      cout  << "           N          n       kernel_n     gamma_n      h_n          h           error";
    //   std::cout << "         l1       l2" << endl;
    //   std::cout << "                 answer1      answer1";
       cout << "  " << "  " << endl << endl;
 
       cout << fixed << setprecision(6);
 
-  double sum = 0.0;
+  double sum1 = 0.0;
+  double sum2 = 0.0;
+
 
   for (int i=0; i<n; i++){
     for (int j=1; j<nn+1; j++){
-      sum += pow(hhs1.kernel(i,k,theta,c,del),j)* hhs1.series(i,t-i);
-      cout << setw(12) << j << setw(12) << i << setw(13) << pow(hhs1.kernel(i,k,theta,c,del),j) << setw(12) << hhs1.series(i,t-i) << setw(13) << setw(13)<< sum;
+      sum1 += pow(hhs1.kernel(i,k,theta,c,del),j)* hhs1.series(i,t-i);
+      sum2 += (1/del)*pow(hhs1.kernel(i,k,theta,c,del),j)* hhs1.series(i,t*(1/del)-i);
+      cout << setw(12) << j << setw(12) << i << setw(13) << pow(hhs1.kernel(i,k,theta,c,del),j) << setw(12) << hhs1.series(i,t-i) << setw(13)<< sum1 << setw(13) << sum2 << setw(13) << hhs1.findError(sum2,sum1);
       cout << endl;
     }
   }
@@ -71,47 +74,31 @@ delete[] x;*/
   return 0;
   }
 /* 
+
 Under beta_j = g((j+1)del)
- leanne@leanne-HP-ProBook-450-G5:~/explicit-algorithm-volterra/approxh$ ./hhsum
  Enter the value for t: 3.5
  Enter the value for n (n>=0): 4
  Enter the value for N (N>=1): 3
  Enter the value for k: 0.6
  Enter the value for theta: 0.8
  Enter the value for c: 1.1
- Enter the value for delta: 0.01
+ Enter the value for delta: 0.001
 norm1 = 12.2
 norminf = 5.1
-           N          n       kernel_n     gamma_n      h_n    
+           N          n       kernel_n     gamma_n      h_n          h           error    
 
-           1           0     0.429313    0.285714     0.122661
-           2           0     0.184310    0.285714     0.175321
-           3           0     0.079127    0.285714     0.197928
-           1           1     0.422438    0.000000     0.197928
-           2           1     0.178454    0.000000     0.197928
-           3           1     0.075386    0.000000     0.197928
-           1           2     0.415733    0.500000     0.405795
-           2           2     0.172834    0.500000     0.492212
-           3           2     0.071853    0.500000     0.528138
-           1           3     0.409192    0.125000     0.579287
-           2           3     0.167438    0.125000     0.600216
-           3           3     0.068514    0.125000     0.608781
-Under beta_j = g(j*del)
-
-           N          n       kernel_n     gamma_n      h_n    
-
-           1           0     0.436364    0.285714     0.124675
-           2           0     0.190413    0.285714     0.179079
-           3           0     0.083089    0.285714     0.202819
-           1           1     0.429313    0.000000     0.202819
-           2           1     0.184310    0.000000     0.202819
-           3           1     0.079127    0.000000     0.202819
-           1           2     0.422438    0.500000     0.414038
-           2           2     0.178454    0.500000     0.503265
-           3           2     0.075386    0.500000     0.540958
-           1           3     0.415733    0.125000     0.592924
-           2           3     0.172834    0.125000     0.614528
-           3           3     0.071853    0.125000     0.623510
+           1           0     0.435650    0.285714     0.124472     0.124472     0.000000
+           2           0     0.189791    0.285714     0.178698     0.178698     0.000000
+           3           0     0.082683    0.285714     0.202321     0.202321     0.000000
+           1           1     0.434939    0.000000     0.202321     0.202321     0.000000
+           2           1     0.189172    0.000000     0.202321     0.202321     0.000000
+           3           1     0.082278    0.000000     0.202321     0.202321     0.000000
+           1           2     0.434230    0.500000     0.419436     0.202321     0.217115
+           2           2     0.188555    0.500000     0.513714     0.202321     0.311393
+           3           2     0.081876    0.500000     0.554652     0.202321     0.352331
+           1           3     0.433522    0.125000     0.608842     0.202321     0.406521
+           2           3     0.187941    0.125000     0.632335     0.202321     0.430014
+           3           3     0.081477    0.125000     0.642519     0.202321     0.440198
 
 
 */

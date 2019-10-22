@@ -55,9 +55,14 @@ double hhsum::series(int n, double t){
 }
 
 double hhsum::kernel(int n, double k, double theta, double c, double del){
-    //return k*theta*pow(c,theta)/(pow((c+(n+1)*del),(1+theta)));
-    return k*theta*pow(c,theta)/(pow((c+n*del),(1+theta)));
+    return k*theta*pow(c,theta)/(pow((c+(n+1)*del),(1+theta)));
+    //return k*theta*pow(c,theta)/(pow((c+n*del),(1+theta)));
 }
+
+double hhsum::h_a(int r, double k, double theta, double c, double del, double t, int n){
+  return (pow(kernel(r,k,theta,c,del),n)*series(n, t-n));
+}
+
 
 void hhsum::norms(double* x, int n, double& norm1, double& norminf)
 {
@@ -72,7 +77,7 @@ void hhsum::norms(double* x, int n, double& norm1, double& norminf)
   }
 }
 
-void hhsum::findError()
+double hhsum::findError(double h1,double h2)
 {
-  Error = fabs(h-h_a);
+  return fabs(h1-h2);
  }
