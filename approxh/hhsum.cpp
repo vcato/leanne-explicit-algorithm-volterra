@@ -2,6 +2,7 @@
 #include "hhsum.hpp"
 #include <iostream>
 #include <cmath>
+#include <string>
 using namespace std; 
 
 
@@ -54,13 +55,19 @@ double hhsum::series(int n, double t){
     return sum;
 }
 
-double hhsum::kernel(int n, double k, double theta, double c, double del){
+//double hhsum::kernel(int n, double k, double theta, double c, double del, std:: string& base , const double sig = 0.5){
+double hhsum::kernel(int n, double k, double theta, double c, double del, const std:: string& base){
+  if(base== "PL"){
     return k*theta*pow(c,theta)/(pow((c+(n+1)*del),(1+theta)));
-    //return k*theta*pow(c,theta)/(pow((c+n*del),(1+theta)));
-}
-
-double hhsum::h_a(int r, double k, double theta, double c, double del, double t, int n){
-  return (pow(kernel(r,k,theta,c,del),n)*series(n, t-n));
+  }
+  else if (base=="Exp"){
+    return k*theta*exp(-theta*t);
+  }
+  else if (base=="RL"){
+    //(k*t/(sig*sig))*exp(-t*t/(2*sig*sig));
+    return (k*t/0.01)*exp(-t*t/(2*0.04));
+  }
+//  return 0;
 }
 
 
