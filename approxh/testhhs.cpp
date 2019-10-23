@@ -1,3 +1,4 @@
+
 #include "hhsum.hpp"
 #include <iostream>
 #include <cmath>
@@ -18,7 +19,8 @@ int main()
   hhsum hhs1;
 
   cout <<" Enter kernel: ";
-  cin >> base;
+  getline (cin, base);
+  //cin >> base;
 
   cout <<" Enter the value for t: ";
   cin >> t;
@@ -50,10 +52,10 @@ int main()
   delete[] x;
 
 
-      cout  << "           N          n       kernel_n     gamma_n      h_n          h           error";
-      cout << "  " << "  " << endl << endl;
+  cout  << "           N          n       kernel_n     gamma_n      h_n          h           error";
+  cout << "  " << "  " << endl << endl;
 
-      cout << fixed << setprecision(6);
+  cout << fixed << setprecision(6);
 
   double sum1 = 0.0;
   double sum2 = 0.0;
@@ -67,7 +69,6 @@ int main()
       cout << endl;
     }
   }
-
   return 0;
   }
 /* 

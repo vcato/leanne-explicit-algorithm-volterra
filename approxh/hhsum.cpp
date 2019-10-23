@@ -1,7 +1,7 @@
-#include <bits/stdc++.h> 
 #include "hhsum.hpp"
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 #include <string>
 using namespace std; 
 
@@ -56,7 +56,7 @@ double hhsum::series(int n, double t){
 }
 
 //double hhsum::kernel(int n, double k, double theta, double c, double del, std:: string& base , const double sig = 0.5){
-double hhsum::kernel(int n, double k, double t, double theta, double c, double sig, double del, const std:: string& base){
+double hhsum::kernel(int n, double k, double t, double theta, double c, double sig, double del, std:: string& base){
   if(base== "PL"){
     return k*theta*pow(c,theta)/(pow((c+(n+1)*del),(1+theta)));
   }
