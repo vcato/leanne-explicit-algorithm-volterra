@@ -56,7 +56,11 @@ double hhsum::series(int n, double t){
 }
 
 //double hhsum::kernel(int n, double k, double theta, double c, double del, std:: string& base , const double sig = 0.5){
+<<<<<<< HEAD
 double hhsum::kernel(int r, double k, double t, double theta, double c, double sig, double del, std:: string& base){
+=======
+double hhsum::kernel(int n, double k, double t, double theta, double c, double sig, double del, std:: string& base){
+>>>>>>> 2db0a38aa21bb24d0cd7c59f5a3f22e92d05c2e2
   if(base== "PL"){
     return k*theta*pow(c,theta)/(pow((c+(r+1)*del),(1+theta)));
   }

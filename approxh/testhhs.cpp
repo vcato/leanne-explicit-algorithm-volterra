@@ -11,7 +11,11 @@ using namespace std;
 // Driver code 
 int main() 
 {
+<<<<<<< HEAD
   int n, nn, r;
+=======
+  int n, nn;
+>>>>>>> 2db0a38aa21bb24d0cd7c59f5a3f22e92d05c2e2
   double k, t, theta, c, sig, del;
   std::string base;
 
