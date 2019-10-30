@@ -56,11 +56,8 @@ double hhsum::series(int n, double t){
 }
 
 //double hhsum::kernel(int n, double k, double theta, double c, double del, std:: string& base , const double sig = 0.5){
-<<<<<<< HEAD
 double hhsum::kernel(int r, double k, double t, double theta, double c, double sig, double del, std:: string& base){
-=======
-double hhsum::kernel(int n, double k, double t, double theta, double c, double sig, double del, std:: string& base){
->>>>>>> 2db0a38aa21bb24d0cd7c59f5a3f22e92d05c2e2
+
   if(base== "PL"){
     return k*theta*pow(c,theta)/(pow((c+(r+1)*del),(1+theta)));
   }
@@ -74,7 +71,29 @@ double hhsum::kernel(int n, double k, double t, double theta, double c, double s
 //  return 0;
 }
 
+double hhsum:: ar(int r, double k, double t, double theta, double c, double sig, double del, std:: string& base){
+  return del*kernel(r,  k,  t,  theta,  c,  sig,  del, base);
+}
 
+double hhsum:: beta(int n, int r, double k, double t, double theta, double c, double sig, double del, std:: string& base){
+  double value = 0;
+  int l;
+
+  if (n=0, r=0){
+    return 1;
+  }
+  else if (n=0, r>=1){
+    return 0;
+  }
+  else if (n=1, r>=0){
+    return ar(r,k,t,theta,c,sig,del,base);
+  }
+  else {
+      value = beta(n,r,k,t,theta,c,sig,del,base) + ar(1,k,t,theta,c,sig,del,base)*beta(n-1,r,k,t,theta,c,sig,del,base);
+      // lacking an argument, also need to incorporate kernel
+    return value;
+  }
+}
 void hhsum::norms(double* x, int n, double& norm1, double& norminf)
 {
   norm1 = fabs(x[0]);

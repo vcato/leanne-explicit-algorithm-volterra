@@ -13,12 +13,10 @@ public: //member functions
 	double my_fct(double t, double a, double k);
 	double series(int n, double t);
 	//double kernel(int n, double k, double theta, double c, double del, std:: string& base , const double sig = 0.5);
-<<<<<<< HEAD
 	double kernel(int r, double k, double t, double theta, double c, double sig, double del, std:: string& base);
-=======
-	double kernel(int n, double k, double t, double theta, double c, double sig, double del, std:: string& base);
->>>>>>> 2db0a38aa21bb24d0cd7c59f5a3f22e92d05c2e2
 	double findError(double h1,double h2);
+	double ar(int r, double k, double t, double theta, double c, double sig, double del, std:: string& base);
+	double beta(int n, int r, double k, double t, double theta, double c, double sig, double del, std:: string& base);
 	void norms(double* x, int n, double& norm1, double& norminf);
 
 private: // input data
