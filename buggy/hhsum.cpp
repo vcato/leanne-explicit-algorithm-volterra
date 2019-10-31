@@ -56,28 +56,27 @@ double hhsum::series(int n, double t){
 }
 
 //double hhsum::kernel(int n, double k, double theta, double c, double del, std:: string& base , const double sig = 0.5){
-double hhsum::kernel(int r, double k, double t, double theta, double c, double sig, double del, std:: string& base){
+double hhsum::kernel(int r, double k, double theta, double c, double sig, double del, std:: string& base){
 
   if(base== "PL"){
     return k*theta*pow(c,theta)/(pow((c+(r+1)*del),(1+theta)));
   }
   else if (base=="Exp"){
-    return k*theta*exp(-theta*t);
+    return k*theta*exp(-theta*(r+1));
   }
   else if (base=="RL"){
     //(k*t/(sig*sig))*exp(-t*t/(2*sig*sig));
-    return (k*t/(pow(sig,2)))*exp(-t*t/(2*pow(sig,2)));
+    return (k*(r+1)/(pow(sig,2)))*exp(-(r+1)*(r+1)/(2*pow(sig,2)));
   }
 //  return 0;
 }
 
-double hhsum:: ar(int r, double k, double t, double theta, double c, double sig, double del, std:: string& base){
-  return del*kernel(r,  k,  t,  theta,  c,  sig,  del, base);
+double hhsum:: ar(int r, double k, double theta, double c, double sig, double del, std:: string& base){
+  return del*kernel(r,  k,  theta,  c,  sig,  del, base);
 }
 
-double hhsum:: beta(int n, int r, double k, double t, double theta, double c, double sig, double del, std:: string& base){
+double hhsum:: beta(int n, int r, double k, double theta, double c, double sig, double del, std:: string& base){
   double value = 0;
-  int l;
 
   if (n=0, r=0){
     return 1;
@@ -86,11 +85,10 @@ double hhsum:: beta(int n, int r, double k, double t, double theta, double c, do
     return 0;
   }
   else if (n=1, r>=0){
-    return ar(r,k,t,theta,c,sig,del,base);
+    return ar(r,k,theta,c,sig,del,base);
   }
   else {
-      value = beta(n,r,k,t,theta,c,sig,del,base) + ar(1,k,t,theta,c,sig,del,base)*beta(n-1,r,k,t,theta,c,sig,del,base);
-      // lacking an argument, also need to incorporate kernel
+      value = beta(n-1,r,k,theta,c,sig,del,base) + ar(n,k,theta,c,sig,del,base)*beta(n,r-n,k,theta,c,sig,del,base);
     return value;
   }
 }

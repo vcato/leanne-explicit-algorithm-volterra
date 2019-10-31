@@ -24,7 +24,6 @@ int main()
 
   cout <<" Enter the value for t: ";
   cin >> t;
-  //   cout <<" Enter the value for n (n>=1): ";
   cout <<" Enter the value for n (n>=0): ";
   cin >> n;
   cout <<" Enter the value for N (N>=1): ";
@@ -62,9 +61,9 @@ int main()
 
   for (int n=1; n<nn+1; n++){
     for (int r=0; r<n; r++){
-      sum1 += hhs1.beta(n,r,k,t,theta,c,sig,del,base)* hhs1.series(n,t-r);
-      sum2 += (1/del)*hhs1.beta(n,r,k,t,theta,c,sig,del,base)* hhs1.series(n,t*(1/del)-r);
-      cout << setw(12) << n << setw(12) << r << setw(13) << hhs1.beta(n,r,k,t,theta,c,sig,del,base) << setw(12) << hhs1.series(n,t-r) << setw(13)<< sum1 << setw(13) << sum2 << setw(13) << hhs1.findError(sum2,sum1);
+      sum1 += hhs1.beta(n,r,k,theta,c,sig,del,base)* hhs1.series(n,t-r);
+      sum2 += (1/del)*hhs1.beta(n,r,k,theta,c,sig,del,base)* hhs1.series(n,t*(1/del)-r);
+      cout << setw(12) << n << setw(12) << r << setw(13) << hhs1.beta(n,r,k,theta,c,sig,del,base) << setw(12) << hhs1.series(n,t-r) << setw(13)<< sum1 << setw(13) << sum2 << setw(13) << hhs1.findError(sum2,sum1);
       cout << endl;
     }
   }
