@@ -1,5 +1,5 @@
-
 #include "hhsum.hpp"
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -11,12 +11,15 @@ using namespace std;
 // Driver code 
 int main() 
 {
+  using hhsum::beta;
+  using hhsum::series;
+  using hhsum::findError;
+  using hhsum::norms;
+
   int n, nn, r;
   double k, t, theta, c, sig, del;
   std::string base;
 
-
-  hhsum hhs1;
 
   cout <<" Enter kernel: ";
   getline (cin, base);
@@ -46,7 +49,7 @@ int main()
   x[0]=-5.1; x[1]=2.3; x[2]=3.7; x[3]=1.1; x[4]=0.7;
   double norm1;
   double norminf;
-  hhs1.norms(x,n,norm1,norminf);
+  norms(x,n,norm1,norminf);
   cout << "norm1 = " << norm1 << endl;
   cout << "norminf = " << norminf << endl;
   delete[] x;
@@ -62,9 +65,9 @@ int main()
 
   for (int n=1; n<nn+1; n++){
     for (int r=0; r<n; r++){
-      sum1 += hhs1.beta(n,r,k,t,theta,c,sig,del,base)* hhs1.series(n,t-r);
-      sum2 += (1/del)*hhs1.beta(n,r,k,t,theta,c,sig,del,base)* hhs1.series(n,t*(1/del)-r);
-      cout << setw(12) << n << setw(12) << r << setw(13) << hhs1.beta(n,r,k,t,theta,c,sig,del,base) << setw(12) << hhs1.series(n,t-r) << setw(13)<< sum1 << setw(13) << sum2 << setw(13) << hhs1.findError(sum2,sum1);
+      sum1 += beta(n,r,k,t,theta,c,sig,del,base)* series(n,t-r);
+      sum2 += (1/del)*beta(n,r,k,t,theta,c,sig,del,base)* series(n,t*(1/del)-r);
+      cout << setw(12) << n << setw(12) << r << setw(13) << beta(n,r,k,t,theta,c,sig,del,base) << setw(12) << series(n,t-r) << setw(13)<< sum1 << setw(13) << sum2 << setw(13) << findError(sum2,sum1);
       cout << endl;
     }
   }
